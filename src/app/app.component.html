@@ -1,0 +1,179 @@
+
+  <form action="menotorintake">
+    <h1>Mentor Intake Form for Y STEM and Chess Inc </h1>
+    <p class="required">*Required </p>
+</form>
+<br>
+<form [formGroup]="form" (ngSubmit)="submit()">
+      
+ <div class="form-group">
+        <label for="name">Name: </label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f.name.touched && f.name.invalid" class="alert-danger">
+            <div *ngIf="f.name.errors?.required">Name is required</div>
+            <div *ngIf="f.name.errors?.minlength">Name should be 3 character</div>
+        </div>
+    </div>
+   
+    <br>
+
+    <div class = "form-group">
+        <label for="major">Major/Occupation:?</label>
+        <input 
+            formControlName = "major"
+            id = "major"
+            type = "text"
+            class = "form-control">
+        <div *ngIf="f.major.touched && f.major.invalid" class="alert-danger">
+            <div *ngIf="f.major.errors?.required">Major/Occupation is required</div>
+        </div>
+    </div>
+
+
+    <br>
+    <div class="form-group">
+        <label for="email">Email: </label>
+        <input 
+            formControlName="email"
+            id="email" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f.email.touched && f.email.invalid" class="alert-danger">
+            <div *ngIf="f.email.errors?.required">Email is required.</div>
+            <div *ngIf="f.email.errors?.email">Please, enter valid email address.</div>
+        </div>
+    </div>
+    
+    <br>
+     <div class="form-group">
+         <label for = "phoneno">Phone Number:</label>
+         <input 
+            formControlName="phoneno"
+            id="phoneno"
+            type="text"
+            class="form-control">
+        <div *ngIf="f.phoneno.touched && f.phoneno.invalid" class="alert-danger">
+            <div *ngIf="f.phoneno.errors?.required">Phone Number is required</div>
+            <div *ngIf="f.phoneno.errors?.pattern">Please enter valid Phone Number</div>
+        </div>         
+    </div>   
+
+    <br>
+    <div class = "form-group">
+        <label for = "felony">Have you been convicted of a felony?</label>
+        <p>
+            <input formControlName = "felony" id = "felony" type = "radio" value = "yes" class="form-control">Yes 
+            <br>
+            <input formControlName = "felony" id = "felony" type = "radio" value = "no" class="form-control">No
+            <div *ngIf="f.felony.touched && f.felony.invalid" class="alert-danger">
+                <div *ngIf="f.felony.errors?.required">This is required</div>
+            </div>
+    </div>
+
+    <div class = "form-group">
+        <label id = "noasterick" for = "explainCrime">If yes please explain including crime, date, location, ETC.
+        </label>
+        <input fromControlName = "explainCrime" type ="textbox" id = "explainCrime" class="form-control">
+    </div>
+    <br>
+
+    <div class = "form-group">
+        <label id = "noasterick" for = "language">Do you speak other languages besides english?</label> 
+        <input fromControlName = "language" type = "textbox" id = "language" class = "language">
+    </div>
+
+    <br>
+    <div class = "form-group">
+        <label for = "chess">Do you have experience playing Chess:</label>
+        <p>
+            <input formControlName = "chess" id = "chess" type = "radio" value = "yes" class="form-control">Yes 
+            <br>
+            <input formControlName = "chess" id = "chess" type = "radio" value = "no" class="form-control">No
+            <div *ngIf="f.chess.touched && f.chess.invalid" class="alert-danger">
+                <div *ngIf="f.chess.errors?.required">This is required</div>
+            </div>
+    </div>
+
+
+    
+    <div class = "form-group">
+        <label for = "chess" id = "noasterick">If yes, whats your approximate level 0-2600</label>
+        <input id = "chesstextarea" type = "textarea"> 
+
+    </div>
+
+    <br>
+
+
+
+    <div class = "form-group">
+        <label for = "learn">If no, are you willing to learn?</label>
+        <p>
+            <input formControlName = "learn" id = "learn" type = "radio" value = "yes" class = "form-control">Yes
+            <br>
+            <input formControlName = "learn" id = "learn1" type = "radio" value="no" class = "form-control">No
+            <div *ngIf="f.learn.touched && f.learn.invalid" class = "alert-danger">
+                <div *ngIf="f.learn.errors?.required">This is required</div>
+            </div>
+
+
+    </div> 
+
+    
+      <!-- <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
+        Checkbox is required, select atleast one value.
+      </p> -->
+      <div class = "form-group">
+        <label for = "favtutor">Do you have experience as a tutor?</label>
+            <div *ngFor = "let control of tutorData; let i = index">
+                <input type = "checkbox" 
+                (change)="changeSelection()">{{control}}
+            </div> 
+
+         <p *ngIf="f['favtutor'].errors?.required">
+                Please select atleast one value
+         </p>   
+    </div> 
+
+
+    <br>
+    <div class = "form-group">
+        <label for = "ProgrammingExperience">Experience in Programming?</label>
+        <br>
+        <input type = "checkbox" value = "python">Python
+        <br>
+        <input type = "checkbox" value = "java">Java
+        <br>
+        <input type = "checkbox" value = "linux">Linux
+        <br>
+        <input type = "checkbox" value = "none">None of the above
+        <br>
+        <input type = "checkbox" value = "Other" id = "Other">Other:
+        <textarea id = "Other"></textarea>
+    </div>
+
+    <br>
+    <div class = "button">
+         <button type="submit">Submit</button>
+    </div>
+</form> 
+ 
+ <!-- <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+
+    <div *ngFor="let data of Data; let i=index">
+      <label id = "noasterick">
+        <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+        {{data.name}}
+      </label>
+    </div>
+  
+    <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
+      Checkbox is required, select atleast one value.
+    </p>
+  
+    <input type="submit" value="Submit">
+  </form> -->

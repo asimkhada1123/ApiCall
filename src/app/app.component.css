@@ -1,0 +1,106 @@
+
+
+input.ng-invalid{
+    border-color: red;
+}
+
+
+form{
+    margin: 0 auto; 
+    width: 500px; 
+    padding: 1em;
+    border: 1px solid #CCC; 
+    border-radius: 1.5em;
+    font-size:medium; 
+}
+
+ul {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+}
+
+input[type=radio]{
+    
+    width: 10px;
+}
+
+input[type=checkbox]{
+
+    width: 10px; 
+}
+
+label{
+    
+    display: block;
+
+    /* Used to change width of text in label  */
+    width: 500px;    
+}
+/*
+Adding red star to Form Input Names 
+*/
+label::after{
+    color: #e32; 
+    content: ' *';
+    /* Display in-line makes sure to display in same line  */
+    display: inline;
+}
+
+/* Removing asterick for label where it is not required */
+#noasterick::after{
+    content: none;
+}
+
+/* Reducing size of text area in field(Do you speak other languages besides english?) */
+#language{
+    width: 200px;
+    height: 1.5em;
+}
+
+/* Reducing size of text area in field(If yes, whats your approximate level 0-2600) */
+#chesstextarea{
+    width: 100px; 
+    height: 1em; 
+}
+
+
+input,textarea {
+    font: 1em sans-serif; 
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid #999; 
+
+}
+
+input:focus, 
+textarea:focus{
+    border-color: #000;
+}
+
+textarea{
+    vertical-align: top;
+    height: 2.5em; 
+}
+
+/* Text area for Felony Explanation needs to be bigger */
+.explainCrime{
+    width: 100%;
+}
+
+.alert-danger{
+    padding-left: 0px;
+    color:red; 
+}
+
+.button{
+    padding-left: 85px;
+}
+
+button{
+    margin-left: .5em;
+}
+
+.required{
+    color:red; 
+}
