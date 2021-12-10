@@ -32,7 +32,7 @@ if(isset($_POST['body'])) {
   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer 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'));
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer APIKEY'));
 
   $server_output = curl_exec($ch);
 

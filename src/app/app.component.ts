@@ -109,7 +109,7 @@ export class AppComponent implements OnInit{
     // Build the request and do it.
     // tslint:disable-next-line:max-line-length
     const headers = {
-      'x-api-key': '00hT24O7xI9PmxcaamUI57tA59tk9X8y7fv9v3Zc'
+      'x-api-key': ''
       };
     // this.http.get('https://api.crimeometer.com/v2/sex-offenders/records?zipcode=' + this.form.value.zipcode + '&exact_name=' + this.form.value.name,
     this.http.get<RepsonseSexOffender>('https://api.crimeometer.com/v2/sex-offenders/records?zipcode=11212&name=David Bosmond',
