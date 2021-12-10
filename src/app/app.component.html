@@ -2,28 +2,33 @@
   <form action="menotorintake">
     <h1>Mentor Intake Form for Y STEM and Chess Inc </h1>
     <p class="required">*Required </p>
+    <ng-container *ngIf="thanks">
+      <p>Thanks for your interest!</p>
+    </ng-container>
 </form>
 <br>
+
+<ng-container *ngIf="show">
 <form [formGroup]="form" (ngSubmit)="submit()">
-      
+
  <div class="form-group">
         <label for="name">Name: </label>
-        <input 
+        <input
             formControlName="name"
-            id="name" 
-            type="text" 
+            id="name"
+            type="text"
             class="form-control">
         <div *ngIf="f.name.touched && f.name.invalid" class="alert-danger">
             <div *ngIf="f.name.errors?.required">Name is required</div>
             <div *ngIf="f.name.errors?.minlength">Name should be 3 character</div>
         </div>
     </div>
-   
+
     <br>
 
     <div class = "form-group">
         <label for="major">Major/Occupation:?</label>
-        <input 
+        <input
             formControlName = "major"
             id = "major"
             type = "text"
@@ -37,21 +42,21 @@
     <br>
     <div class="form-group">
         <label for="email">Email: </label>
-        <input 
+        <input
             formControlName="email"
-            id="email" 
-            type="text" 
+            id="email"
+            type="text"
             class="form-control">
         <div *ngIf="f.email.touched && f.email.invalid" class="alert-danger">
             <div *ngIf="f.email.errors?.required">Email is required.</div>
             <div *ngIf="f.email.errors?.email">Please, enter valid email address.</div>
         </div>
     </div>
-    
+
     <br>
      <div class="form-group">
          <label for = "phoneno">Phone Number:</label>
-         <input 
+         <input
             formControlName="phoneno"
             id="phoneno"
             type="text"
@@ -59,14 +64,27 @@
         <div *ngIf="f.phoneno.touched && f.phoneno.invalid" class="alert-danger">
             <div *ngIf="f.phoneno.errors?.required">Phone Number is required</div>
             <div *ngIf="f.phoneno.errors?.pattern">Please enter valid Phone Number</div>
-        </div>         
-    </div>   
+        </div>
+    </div>
+  <br>
 
-    <br>
+  <div class="form-group">
+      <label for = "zipcode">Zip Code:</label>
+      <input
+        formControlName="zipcode"
+        id="zipcode"
+        type="text"
+        class="form-control">
+      <div *ngIf="f.zipcode.touched && f.zipcode.invalid" class="alert-danger">
+        <div *ngIf="f.zipcode.errors?.required">Your zipcode is required</div>
+        <div *ngIf="f.zipcode.errors?.pattern">Please enter valid Zipcode</div>
+      </div>
+    </div>
+  <br>
     <div class = "form-group">
         <label for = "felony">Have you been convicted of a felony?</label>
         <p>
-            <input formControlName = "felony" id = "felony" type = "radio" value = "yes" class="form-control">Yes 
+            <input formControlName = "felony" id = "felony" type = "radio" value = "yes" class="form-control">Yes
             <br>
             <input formControlName = "felony" id = "felony" type = "radio" value = "no" class="form-control">No
             <div *ngIf="f.felony.touched && f.felony.invalid" class="alert-danger">
@@ -82,7 +100,7 @@
     <br>
 
     <div class = "form-group">
-        <label id = "noasterick" for = "language">Do you speak other languages besides english?</label> 
+        <label id = "noasterick" for = "language">Do you speak other languages besides english?</label>
         <input fromControlName = "language" type = "textbox" id = "language" class = "language">
     </div>
 
@@ -90,7 +108,7 @@
     <div class = "form-group">
         <label for = "chess">Do you have experience playing Chess:</label>
         <p>
-            <input formControlName = "chess" id = "chess" type = "radio" value = "yes" class="form-control">Yes 
+            <input formControlName = "chess" id = "chess" type = "radio" value = "yes" class="form-control">Yes
             <br>
             <input formControlName = "chess" id = "chess" type = "radio" value = "no" class="form-control">No
             <div *ngIf="f.chess.touched && f.chess.invalid" class="alert-danger">
@@ -99,10 +117,10 @@
     </div>
 
 
-    
+
     <div class = "form-group">
         <label for = "chess" id = "noasterick">If yes, whats your approximate level 0-2600</label>
-        <input id = "chesstextarea" type = "textarea"> 
+        <input id = "chesstextarea" type = "textarea">
 
     </div>
 
@@ -121,23 +139,23 @@
             </div>
 
 
-    </div> 
+    </div>
 
-    
+
       <!-- <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
         Checkbox is required, select atleast one value.
       </p> -->
       <div class = "form-group">
         <label for = "favtutor">Do you have experience as a tutor?</label>
             <div *ngFor = "let control of tutorData; let i = index">
-                <input type = "checkbox" 
+                <input type = "checkbox"
                 (change)="changeSelection()">{{control}}
-            </div> 
+            </div>
 
          <p *ngIf="f['favtutor'].errors?.required">
                 Please select atleast one value
-         </p>   
-    </div> 
+         </p>
+    </div>
 
 
     <br>
@@ -160,8 +178,8 @@
     <div class = "button">
          <button type="submit">Submit</button>
     </div>
-</form> 
- 
+</form>
+</ng-container>
  <!-- <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
 
     <div *ngFor="let data of Data; let i=index">
@@ -170,10 +188,10 @@
         {{data.name}}
       </label>
     </div>
-  
+
     <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
       Checkbox is required, select atleast one value.
     </p>
-  
+
     <input type="submit" value="Submit">
   </form> -->
