@@ -10,12 +10,12 @@ if(isset($_POST['body'])) {
       [
         'to' => [
           //@todo Change this line to add the email.
-          ['email' => 'someemail@domain.com']
+          ['email' => 'email@domain.com']
         ],
       ],
     ],
     'from' => ['email' => 'ystem@crimeometer.com'],
-    'subject' => 'New sumbition',
+    'subject' => 'YSTEM and Chess - New Form Submission',
     'content' => [
       [
         'type' => 'text/plain',
@@ -32,6 +32,8 @@ if(isset($_POST['body'])) {
   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+
+  //@todo Replace APIKEY with the api key from sendgrid.
   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer APIKEY'));
 
   $server_output = curl_exec($ch);
