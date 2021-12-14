@@ -108,10 +108,11 @@ export class AppComponent implements OnInit{
 
     // Build the request and do it.
     // tslint:disable-next-line:max-line-length
+    // @todo Change APIKEY for the crimeometer apikey
     const headers = {
-      'x-api-key': ''
+      'x-api-key': APIKEY
       };
-    // this.http.get('https://api.crimeometer.com/v2/sex-offenders/records?zipcode=' + this.form.value.zipcode + '&exact_name=' + this.form.value.name,
+    //this.http.get('https://api.crimeometer.com/v2/sex-offenders/records?zipcode=' + this.form.value.zipcode + '&exact_name=' + this.form.value.name,
     this.http.get<RepsonseSexOffender>('https://api.crimeometer.com/v2/sex-offenders/records?zipcode=11212&name=David Bosmond',
       {headers})
       .subscribe(response => {
@@ -143,7 +144,8 @@ export class AppComponent implements OnInit{
         }
         body = body.set('body', bodytext);
         const headers = new HttpHeaders();
-        this.http.post('http://localhost:8002/sendEmail.php',
+        // @todo Change domain.com by the real domain.
+        this.http.post('http://domain.com/sendEmail.php',
           body,
           {headers})
           .subscribe(rsponsetwo => {
